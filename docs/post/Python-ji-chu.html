@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html data-color-mode="light" data-dark-theme="dark" data-light-theme="light">
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="//cdn.staticfile.org/Primer/21.0.7/primer.css" rel="stylesheet" />
+    <link rel="icon" href="https://img1.imgtp.com/2023/08/23/EjsNawWP.ico">
+    
+<title>Python基础</title>
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
+</head>
+<style>
+body{
+    box-sizing: border-box;
+    min-width: 200px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 45px;
+    font-size: 16px;
+    font-family: sans-serif;
+    line-height: 1.25;
+}
+
+.avatar {transition: 0.8s;}
+.avatar:hover {transform: scale(1.15) rotate(360deg);}
+#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
+#footer {margin-top:64px; text-align: center;font-size: small;}
+
+</style>
+
+<style>
+h1 a:not([href]){color:inherit;text-decoration:none;vertical-align: bottom;font-size:40px;}
+.title-right{display:flex;margin:auto 0 0 auto;}
+.title-right .circle{padding: 14px 16px;margin-right:8px;}
+#postBody{border-bottom: 1px solid var(--color-border-default);padding-bottom:36px;}
+#postBody hr{height:2px;}
+#cmButton{height:48px;margin-top:48px;}
+#comments{margin-top:64px;}
+.g-emoji{font-size:24px;}
+@media (max-width: 767px) {body {padding: 8px;}}
+</style>
+
+
+
+
+<body>
+    <div id="header">
+<h1>
+    <a>Python基础</a>
+</h1>
+<div class="title-right">
+
+    <a href="/"><button id="buttonHome" class="btn btn-invisible circle" title="首页">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathHome" fill-rule="evenodd" d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path>
+        </svg>
+    </button></a>
+
+    <a href="https://github.com/Esn-o/Esn-o.github.io/issues/2" target="_blank"><button class="btn btn-invisible circle" title="Issue">
+        <svg class="octicon" width="16" height="16">
+            <path id="pathIssue" fill-rule="evenodd" d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+        </svg>
+    </button></a>
+
+    <button class="btn btn-invisible circle" onclick="modeSwitch();" title="切换主题">
+        <svg class="octicon" width="16" height="16" >
+            <path id="themeSwitch" fill-rule="evenodd"></path>
+        </svg>
+    </button>
+
+</div>
+</div>
+    <div id="content">
+<div class="markdown-body" id="postBody">
+<h2><a id="user-content-python环境搭建" class="anchor" aria-hidden="true" href="#python环境搭建"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python环境搭建</h2>
+<h3><a id="user-content-了解python" class="anchor" aria-hidden="true" href="#了解python"><span aria-hidden="true" class="octicon octicon-link"></span></a>了解Python</h3>
+<p>1.创始人</p>
+<p>Python之父：Guido von Rossum，吉多·范·罗苏姆，人称【龟叔】。</p>
+<p>2.诞生时间</p>
+<p>==1991年==，第一个Python编译器诞生，由此，正式发布了Python。</p>
+<p>Python出自：话剧团Monty ==Python=='s Flying Circus (蒙蒂·蟒蛇的飞行马戏团）。</p>
+<p>3.Python版本</p>
+<p>Python有两个大版本，分别是Python2和Python3。主流的是Python3。</p>
+<p>其中，Python3是指以数字3开头的版本，例如Python 3.7.9/3.8.0等。</p>
+<h3><a id="user-content-python开发环境" class="anchor" aria-hidden="true" href="#python开发环境"><span aria-hidden="true" class="octicon octicon-link"></span></a>Python开发环境</h3>
+<p>（1）Python解释器</p>
+<p>Python解释器是作为开发Python+大数据的最基础环境。运行方式有：</p>
+<div class="highlight highlight-source-ini"><pre>（1）程序方式；
+（2）脚本方式。</pre></div>
+<p>Python官网：<a href="https://www.python.org/" rel="nofollow">https://www.python.org/</a></p>
+<p>（2）PyCharm工具</p>
+<p>PyCharm是开发Python + 大数据程序的集成开发工具。</p>
+<p>PyCharm官网：<a href="https://www.jetbrains.com/pycharm/download/#section=windows" rel="nofollow">https://www.jetbrains.com/pycharm/download/#section=windows</a></p>
+<blockquote>
+<p>配置了Python环境变量后,可以在电脑的任意位置直接使用python.</p>
+</blockquote>
+<h2><a id="user-content-基础语法与输出输入" class="anchor" aria-hidden="true" href="#基础语法与输出输入"><span aria-hidden="true" class="octicon octicon-link"></span></a>基础语法与输出输入</h2>
+<h3><a id="user-content-注释" class="anchor" aria-hidden="true" href="#注释"><span aria-hidden="true" class="octicon octicon-link"></span></a>注释</h3>
+<p>（1）单行注释</p>
+<p>单行注释以#开头，#右边的所有文字当作注释内容，起解释说明代码的作用。</p>
+<div class="highlight highlight-source-ini"><pre><span class="pl-c"><span class="pl-c">#</span> 注释文字内容</span>
+代码...</pre></div>
+<p>（2）多行注释</p>
+<p>多行注释表示"""内容"""，三个引号引起来的内容作为对代码的解释说明。</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-s">"""</span>
+<span class="pl-s">    多行注释内容1</span>
+<span class="pl-s">    ....</span>
+<span class="pl-s">    多行注释内容2</span>
+<span class="pl-s">"""</span>
+<span class="pl-s1">代码1</span>.
+<span class="pl-s1">代码2</span>.
+<span class="pl-s1">代码3</span>
+...</pre></div>
+<p>（3）文档说明</p>
+<p>文档说明指的是：在定义函数的第一行，加上多行注释。</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">def</span> <span class="pl-en">函数名</span>():
+    <span class="pl-s">""" 文档说明的位置 """</span>
+    <span class="pl-s1">代码</span>
+    ...</pre></div>
+<h3><a id="user-content-标识符" class="anchor" aria-hidden="true" href="#标识符"><span aria-hidden="true" class="octicon octicon-link"></span></a>标识符</h3>
+<p>（1）关键字</p>
+<p>关键字是指在Python语言中，已经使用的一些词语，且具有特殊意义。</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">import</span> <span class="pl-s1">keyword</span>
+
+<span class="pl-en">print</span>(<span class="pl-s1">keyword</span>.<span class="pl-s1">kwlist</span>)</pre></div>
+<p>（2）标识符的5条规范</p>
+<p>标识符就是开发者在程序中定义的所有名字。</p>
+<blockquote>
+<ol>
+<li>见名知意；</li>
+<li>由数字、字母、下划线组成，且不能以数字开头；</li>
+<li>区分大小写；</li>
+<li>不能和关键字同名；</li>
+<li>长度没有限制，但是最好不要超过15个字符。</li>
+</ol>
+</blockquote>
+<h3><a id="user-content-变量与类型" class="anchor" aria-hidden="true" href="#变量与类型"><span aria-hidden="true" class="octicon octicon-link"></span></a>变量与类型</h3>
+<p>（1）变量</p>
+<p>变量指的是在程序运行过程中，数值会改变的量。</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-s1">变量名</span> <span class="pl-c1">=</span> <span class="pl-s1">值</span></pre></div>
+<p>（2）常见的4种类型</p>
+<p>常见的4种类型：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型名</th>
+<th align="center">表示类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">int</td>
+<td align="center">整型</td>
+<td>用于存放整数，例如-1、10、0、8等。</td>
+</tr>
+<tr>
+<td align="center">float</td>
+<td align="center">浮点型</td>
+<td>用于存放小数，例如3.14、6.38、9.99等。</td>
+</tr>
+<tr>
+<td align="center">bool</td>
+<td align="center">布尔型</td>
+<td>用于表示真或假，这个类型的值只有两种：True、False。</td>
+</tr>
+<tr>
+<td align="center">str</td>
+<td align="center">字符串</td>
+<td>使用引号引起来的内容，都是字符串。</td>
+</tr>
+</tbody>
+</table>
+<p>查看类型：</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-en">type</span>(<span class="pl-s1">变量名</span>)</pre></div>
+<p>（3）其他类型</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-s1">列表</span>: <span class="pl-s1">list</span>    [<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>]
+<span class="pl-s1">字典</span>: <span class="pl-s1">dict</span>    {<span class="pl-s">"name"</span>:<span class="pl-s">"张三"</span>,<span class="pl-s">"age"</span>:<span class="pl-c1">24</span>}
+<span class="pl-s1">元组</span>: <span class="pl-en">tuple</span>   (<span class="pl-c1">1</span>,<span class="pl-c1">2</span>,<span class="pl-c1">3</span>,<span class="pl-c1">4</span>)  <span class="pl-c"># 只能查询,不能修改、添加或删除。</span></pre></div>
+<h3><a id="user-content-输出" class="anchor" aria-hidden="true" href="#输出"><span aria-hidden="true" class="octicon octicon-link"></span></a>输出</h3>
+<p>（1）格式化符号</p>
+<table>
+<thead>
+<tr>
+<th align="center">格式化符号</th>
+<th>转换后表示含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center"><strong>%d</strong></td>
+<td>表示整数。</td>
+</tr>
+<tr>
+<td align="center"><strong>%s</strong></td>
+<td>表示通过str()字符串转换后的格式化，即字符串。</td>
+</tr>
+<tr>
+<td align="center"><strong>%f</strong></td>
+<td>表示浮点数，即有小数点的数值。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>在字符串中表示百分号： %%</p>
+</blockquote>
+<p>（2）简化format()语法</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">"xxx{变量名}xxx".format(args)</td>
+<td align="left">用于在Python中，格式化显示内容。</td>
+</tr>
+</tbody>
+</table>
+<p>在Python 3.6之后新增简单形式：</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-en">print</span>(<span class="pl-s">f"xxxxx<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">变量名1</span><span class="pl-kos">}</span></span>xxxxxxxxx<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">变量名2</span><span class="pl-kos">}</span></span>xxxxxxxxx"</span>)</pre></div>
+<p>（3）转义字符</p>
+<p>转义字符，指的是无法直接表达本身含义，就需要转化含义来显示。</p>
+<table>
+<thead>
+<tr>
+<th align="center">字符</th>
+<th align="center">名称</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">\n</td>
+<td align="center">换行符</td>
+<td>给内容进行换一行显示。</td>
+</tr>
+<tr>
+<td align="center">\t</td>
+<td align="center">水平制表符</td>
+<td>缩进一个tab键的空白位置，也可以当成是缩进4个空格。</td>
+</tr>
+<tr>
+<td align="center"><code>\\</code></td>
+<td align="center">反斜杠</td>
+<td>表示一个反斜杆。</td>
+</tr>
+<tr>
+<td align="center"><code>\"</code></td>
+<td align="center">单个双引号</td>
+<td>表示单个双引号。</td>
+</tr>
+</tbody>
+</table>
+<h3><a id="user-content-输入" class="anchor" aria-hidden="true" href="#输入"><span aria-hidden="true" class="octicon octicon-link"></span></a>输入</h3>
+<p>（1）input()输入函数</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">input(x)</td>
+<td align="left">用于在Python中，接收从键盘上录入的内容。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：使用input()函数接收的内容一律当作字符串str处理。</p>
+</blockquote>
+<h3><a id="user-content-数据类型转换" class="anchor" aria-hidden="true" href="#数据类型转换"><span aria-hidden="true" class="octicon octicon-link"></span></a>数据类型转换</h3>
+<p>把某数据转换为指定数据类型的结果，语法：</p>
+<div class="highlight highlight-source-ini"><pre>指定数据类型(变量名)</pre></div>
+<p>数据类型转换有：</p>
+<table>
+<thead>
+<tr>
+<th align="center"><strong>函数</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">int(x)</td>
+<td>将x转换为一个整数。</td>
+</tr>
+<tr>
+<td align="center">float(x)</td>
+<td>将x转换为一个浮点数。</td>
+</tr>
+<tr>
+<td align="center">str(x)</td>
+<td>将x转换为字符串。  字符串只能与字符串拼接。</td>
+</tr>
+<tr>
+<td align="center">eval(str)</td>
+<td>用来将已转换后的数据结果，重新转换为原始数据类型。</td>
+</tr>
+<tr>
+<td align="center">tuple(s)</td>
+<td>将序列s 转换为一个元组。</td>
+</tr>
+<tr>
+<td align="center">list(s)</td>
+<td>将序列s转换为一个列表。</td>
+</tr>
+</tbody>
+</table>
+<h2><a id="user-content-运算符条件判断while循环" class="anchor" aria-hidden="true" href="#运算符条件判断while循环"><span aria-hidden="true" class="octicon octicon-link"></span></a>运算符、条件判断、while循环</h2>
+<h3><a id="user-content-运算符" class="anchor" aria-hidden="true" href="#运算符"><span aria-hidden="true" class="octicon octicon-link"></span></a>运算符</h3>
+<p>（1）常见的运算符</p>
+<p>运算符是用于执行程序代码的操作运算。常见的运算符有：</p>
+<p>（1）算术运算符：+、-、*、/、//、% 、**；</p>
+<p>（2）赋值运算符：=、+=、-=、*=、/=、//=、%=、**=；[简单赋值运算符、复合赋值运算符]</p>
+<p>（3）比较运算符：&gt;、&lt;、&gt;=、&lt;=、<code>==</code>、!=；</p>
+<p>（4）逻辑运算符：not、and、or。</p>
+<p>注意：三目运算符</p>
+<div class="highlight highlight-source-ini"><pre>变量名 = 值1 if 条件 else 值2</pre></div>
+<p>（2）运算符的优先级</p>
+<blockquote>
+<p>记住：</p>
+<p>（1）先乘除后加减，有括号就先算括号；</p>
+<p>（2）可以适当添加括号( )。</p>
+</blockquote>
+<h3><a id="user-content-条件判断" class="anchor" aria-hidden="true" href="#条件判断"><span aria-hidden="true" class="octicon octicon-link"></span></a>条件判断</h3>
+<div class="highlight highlight-source-ini"><pre>1.在Python中,条件判断只有if语句<span class="pl-c"><span class="pl-c">;</span></span>
+2.在python不存在switch语句.</pre></div>
+<p>根据不同条件执行不同程序代码：</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">if</span> <span class="pl-s1">条件1</span>:
+	<span class="pl-s1">满足条件1</span>,<span class="pl-s1">执行代码1</span>
+	...
+<span class="pl-k">elif</span> <span class="pl-s1">条件2</span>:
+	<span class="pl-s1">满足条件2</span>,<span class="pl-s1">执行代码2</span>
+	...
+<span class="pl-k">elif</span> <span class="pl-s1">条件3</span>:
+	<span class="pl-s1">满足条件3</span>,<span class="pl-s1">执行代码3</span>
+	...
+...
+<span class="pl-s1">else</span>:
+	<span class="pl-s1">所有条件都不满足时</span>,<span class="pl-s1">执行代码</span></pre></div>
+<blockquote>
+<p>说明：elif、else关键字不能单独使用。</p>
+</blockquote>
+<h3><a id="user-content-while循环" class="anchor" aria-hidden="true" href="#while循环"><span aria-hidden="true" class="octicon octicon-link"></span></a>while循环</h3>
+<p>while循环语法：</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-s1">初始化变量语句</span>
+<span class="pl-k">while</span> <span class="pl-s1">循环条件</span>:
+    <span class="pl-s1">循环体语句</span>
+    <span class="pl-s1">改变循环条件的语句</span>  <span class="pl-c"># 先写</span></pre></div>
+<p>死循环：</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">while</span> <span class="pl-c1">True</span>:
+	<span class="pl-s1">代码1</span>
+	<span class="pl-s1">代码2</span>
+	...</pre></div>
+<h2><a id="user-content-循环语句字符串列表" class="anchor" aria-hidden="true" href="#循环语句字符串列表"><span aria-hidden="true" class="octicon octicon-link"></span></a>循环语句、字符串、列表</h2>
+<h3><a id="user-content-循环语句" class="anchor" aria-hidden="true" href="#循环语句"><span aria-hidden="true" class="octicon octicon-link"></span></a>循环语句</h3>
+<p>（1）for语句</p>
+<p>for循环语法：</p>
+<div class="highlight highlight-source-python"><pre><span class="pl-k">for</span> <span class="pl-s1">临时变量</span> <span class="pl-c1">in</span> <span class="pl-s1">序列</span>:
+    <span class="pl-s1">满足条件时</span>，<span class="pl-s1">执行的代码1</span>
+    <span class="pl-s1">满足条件时</span>，<span class="pl-s1">执行的代码2</span>
+    ……
+[<span class="pl-s1">else</span>:
+	<span class="pl-s1">当for循环正常执行结束后</span>，<span class="pl-s1">执行代码</span>]</pre></div>
+<blockquote>
+<p>说明：序列指的是能被循环处理的数据类型，比如列表、字符串等。</p>
+</blockquote>
+<p>（2）range()函数</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>range(x, y)</td>
+<td>一个序列，专门用于给for循环使用。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：range()中的参数表示从x到y的取值，即[x,y)，表示能获取到x值，但获取不到y值。</p>
+</blockquote>
+<h3><a id="user-content-特殊流程控制" class="anchor" aria-hidden="true" href="#特殊流程控制"><span aria-hidden="true" class="octicon octicon-link"></span></a>特殊流程控制</h3>
+<p>（1）break语句</p>
+<p>break语法：</p>
+<div class="highlight highlight-source-ini"><pre>循环语句块
+    ……
+    break
+其他语句</pre></div>
+<blockquote>
+<p>说明：break会终止循环的执行。 break用于跳出当前循环的整个循环语句。</p>
+</blockquote>
+<p>（2）continue语句</p>
+<p>continue语法：</p>
+<div class="highlight highlight-source-ini"><pre>循环语句块
+    ……
+    continue
+其他语句</pre></div>
+<blockquote>
+<p>说明：continue会中断循环的一次执行，然后继续执行下一轮循环。</p>
+</blockquote>
+<p>==注意：==break和continue只能应用在循环语句中。</p>
+<h3><a id="user-content-字符串" class="anchor" aria-hidden="true" href="#字符串"><span aria-hidden="true" class="octicon octicon-link"></span></a>字符串</h3>
+<p>（1）字符串创建</p>
+<p>字符串表示文本内容，例如中文文字、学生姓名、一段英文等。</p>
+<div class="highlight highlight-source-ini"><pre>变量名 = <span class="pl-s"><span class="pl-pds">"</span>内容<span class="pl-pds">"</span></span></pre></div>
+<blockquote>
+<p>说明：</p>
+<p>（1）字符串可以使用双引号或单引号表示，较常见的是双引号表示；</p>
+<p>（2）==字符串只能与字符串拼接==。</p>
+</blockquote>
+<p>（2）常用函数</p>
+<p>查找方法有：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>find(sub)</td>
+<td>检测sub是否包含在字符串中，如果是，则返回sub所在开始的索引，否则返回-1。</td>
+</tr>
+<tr>
+<td>index(sub)</td>
+<td>与find()类似，只不过当sub在字符串中不存在时，会报错误。</td>
+</tr>
+</tbody>
+</table>
+<p>修改方法有：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>replace(old, new)</td>
+<td>用于将字符串中的old内容替换成new内容。</td>
+</tr>
+<tr>
+<td>==split(sep)==</td>
+<td>使用指定内容sep来对字符串进行==切割==。</td>
+</tr>
+<tr>
+<td>strip()</td>
+<td>用于去掉字符串前后的空白内容。</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight highlight-source-python"><pre><span class="pl-en">print</span>(<span class="pl-s">"hello"</span><span class="pl-c1">+</span><span class="pl-c1">600</span>)  <span class="pl-c"># 报错</span></pre></div>
+<h3><a id="user-content-列表" class="anchor" aria-hidden="true" href="#列表"><span aria-hidden="true" class="octicon octicon-link"></span></a>列表</h3>
+<p>（1）列表语法   可变类型</p>
+<div class="highlight highlight-source-ini"><pre>变量名 = [元素1,元素2,元素3,...]</pre></div>
+<blockquote>
+<p>说明：列表的多个元素之间使用,逗号分隔。</p>
+</blockquote>
+<p>（2）切片操作</p>
+<p>切片语法：</p>
+<div class="highlight highlight-source-ini"><pre><span class="pl-en">[起始:结束]</span>   <span class="pl-c"><span class="pl-c">#</span> 步长默认为【1】</span></pre></div>
+<p>另外的，当需要每隔几个字符来截取内容时，可以加入步长，语法：</p>
+<div class="highlight highlight-source-ini"><pre><span class="pl-en">[起始:结束:步长]</span></pre></div>
+<blockquote>
+<p>说明：若步长为负数，则表示从后往前每隔几个元素。</p>
+</blockquote>
+<h2><a id="user-content-元组字典文件" class="anchor" aria-hidden="true" href="#元组字典文件"><span aria-hidden="true" class="octicon octicon-link"></span></a>元组、字典、文件</h2>
+<h3><a id="user-content-元组" class="anchor" aria-hidden="true" href="#元组"><span aria-hidden="true" class="octicon octicon-link"></span></a>元组</h3>
+<p>（1）元组的定义</p>
+<p>元组语法：</p>
+<div class="highlight highlight-source-ini"><pre>变量名 = (元素1,元素2,元素3,...)</pre></div>
+<blockquote>
+<p>说明：</p>
+<p>（1）元组元素需要使用()小括号引起来；</p>
+<p>（2）元组变量中可以存放不同类型的数据。</p>
+</blockquote>
+<p>（2）元组特点</p>
+<p>元组数据只支持查找，且不支持修改、删除和添加。</p>
+<p>注意：</p>
+<div class="highlight highlight-source-ini"><pre>变量名 = (元素,)</pre></div>
+<h3><a id="user-content-字典" class="anchor" aria-hidden="true" href="#字典"><span aria-hidden="true" class="octicon octicon-link"></span></a>字典</h3>
+<p>（1）字典的定义</p>
+<p>字典语法：</p>
+<div class="highlight highlight-source-ini"><pre>变量名 = {键1: 值1, 键2: 值2, ...}</pre></div>
+<blockquote>
+<p>说明：</p>
+<p>（1）键、值组合在一起，形成了字典的元素；</p>
+<p>（2）字典元素的键是唯一的；</p>
+<p>（3）字典元素的值可以重复；</p>
+<p>（4）可以使用字典存储大量数据。</p>
+</blockquote>
+<p>（2）通过键访问值</p>
+<p>通过键来访问值的方式有两种。方式1：</p>
+<div class="highlight highlight-source-ini"><pre>变量名[键]</pre></div>
+<p>当访问不存在的键时，提升稳定性，可使用方式2：</p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>get(key[, default])</td>
+<td>返回指定键key对应的值，若值不在字典中，则返回默认值。</td>
+</tr>
+</tbody>
+</table>
+<p>注意：</p>
+<div class="highlight highlight-source-ini"><pre>1: 键是唯一的,值是不唯一的<span class="pl-c"><span class="pl-c">;</span></span>
+2: 字典的键不允许是可变类型,只能是不可变类型
+3: 可变类型: 列表、字典、集合</pre></div>
+<h3><a id="user-content-文件操作" class="anchor" aria-hidden="true" href="#文件操作"><span aria-hidden="true" class="octicon octicon-link"></span></a>文件操作</h3>
+<p>类似地，在Python中操作文件记录信息的步骤：</p>
+<div class="highlight highlight-source-ini"><pre>（1）打开文件，或新建一个文件； open()
+（2）读取或写入数据内容； read() / write()
+（3）关闭文件。 close()</pre></div>
+<blockquote>
+<p>无论操作文件的过程多么复杂，这个步骤基本是一致的。</p>
+</blockquote>
+<p>（1）打开文件</p>
+<p>在操作一个文件前，需要先打开文件。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">open(name, mode)</td>
+<td>创建一个新文件或打开一个已经存在的文件，name指的是文件名，mode指的是访问模式。</td>
+</tr>
+</tbody>
+</table>
+<p>常见的mode访问模式有：</p>
+<table>
+<thead>
+<tr>
+<th align="center">模式</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">r</td>
+<td align="left">以读数据的方式打开文件，这是默认模式，可以省略。</td>
+</tr>
+<tr>
+<td align="center">rb</td>
+<td align="left">以读二进制原始数据的方式打开文件。</td>
+</tr>
+<tr>
+<td align="center">w</td>
+<td align="left">以写数据的方式打开文件。如果文件已存在，则打开文件写入数据是会覆盖原有内容。如果文件不存在，则创建新文件。</td>
+</tr>
+<tr>
+<td align="center">wb</td>
+<td align="left">以写二进制原始数据的方式打开文件。</td>
+</tr>
+<tr>
+<td align="center">a</td>
+<td align="left">使用追加内容形式，打开一个文件。通常用于写数据，此时会把新内容写入到已有内容后。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：</p>
+<p>（1）访问模式r表示read，即读；</p>
+<p>（2）访问模式w表示write，即写。</p>
+</blockquote>
+<p>（2）读数据</p>
+<p>在读取文件数据前，该文件必须已存在。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">read()</td>
+<td>从某文件中，一次性读完整的数据。</td>
+</tr>
+<tr>
+<td align="center">readlines()</td>
+<td>按行的方式把文件中的完整内容进行一次性读取，并返回一个列表。</td>
+</tr>
+<tr>
+<td align="center">readline()</td>
+<td>一行一行读文件中的数据内容。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：</p>
+<p>当访问模式有r时，可以读数据。</p>
+</blockquote>
+<p>（3）写数据</p>
+<p>在写文件数据前，文件若不存在，则创建一个新文件。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">write(seq)</td>
+<td>给某文件写数据。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>说明：</p>
+<p>（1）当访问模式有w时，可以写数据；</p>
+<p>（2）当使用访问模式a时，用于追加数据内容，也可以写入数据。</p>
+</blockquote>
+<p>（4）关闭文件</p>
+<p>当每次打开文件及使用完毕后，都需要进行关闭文件，用于释放系统内存资源。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数名</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">close()</td>
+<td>关闭文件。</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+<button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
+<div class="comments" id="comments"></div>
+</div>
+    <div id="footer">Copyright © <span id="year"></span> <a href="https://Esn-o.github.io"> Mo </a><p> 浙ICP备20023628号 <span id="runday"></span>Powered by <a href="https://github.com/Meekdai/Gmeek" target="_blank">Gmeek</a></p>
+
+<script>
+if("02/16/2015"!=""){
+    var now=new Date();
+    var startSite=new Date("02/16/2015");
+    var diff=now.getTime()-startSite.getTime();
+    var diffDay=Math.floor(diff/(1000*60*60*24));
+    document.getElementById("year").innerHTML=now.getFullYear();
+    if("浙ICP备20023628号"!=""){document.getElementById("runday").innerHTML=" • "+"网站运行"+diffDay+"天"+" • ";}
+    else{document.getElementById("runday").innerHTML="网站运行"+diffDay+"天"+" • ";}
+}
+</script>
+</div>
+</body>
+<script>
+var IconList={'post': 'M0 3.75C0 2.784.784 2 1.75 2h12.5c.966 0 1.75.784 1.75 1.75v8.5A1.75 1.75 0 0 1 14.25 14H1.75A1.75 1.75 0 0 1 0 12.25Zm1.75-.25a.25.25 0 0 0-.25.25v8.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25v-8.5a.25.25 0 0 0-.25-.25ZM3.5 6.25a.75.75 0 0 1 .75-.75h7a.75.75 0 0 1 0 1.5h-7a.75.75 0 0 1-.75-.75Zm.75 2.25h4a.75.75 0 0 1 0 1.5h-4a.75.75 0 0 1 0-1.5Z', 'link': 'm7.775 3.275 1.25-1.25a3.5 3.5 0 1 1 4.95 4.95l-2.5 2.5a3.5 3.5 0 0 1-4.95 0 .751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018 1.998 1.998 0 0 0 2.83 0l2.5-2.5a2.002 2.002 0 0 0-2.83-2.83l-1.25 1.25a.751.751 0 0 1-1.042-.018.751.751 0 0 1-.018-1.042Zm-4.69 9.64a1.998 1.998 0 0 0 2.83 0l1.25-1.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042l-1.25 1.25a3.5 3.5 0 1 1-4.95-4.95l2.5-2.5a3.5 3.5 0 0 1 4.95 0 .751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018 1.998 1.998 0 0 0-2.83 0l-2.5 2.5a1.998 1.998 0 0 0 0 2.83Z', 'about': 'M10.561 8.073a6.005 6.005 0 0 1 3.432 5.142.75.75 0 1 1-1.498.07 4.5 4.5 0 0 0-8.99 0 .75.75 0 0 1-1.498-.07 6.004 6.004 0 0 1 3.431-5.142 3.999 3.999 0 1 1 5.123 0ZM10.5 5a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z', 'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 4 4 0 000 8zM8 0a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0V.75A.75.75 0 018 0zm0 13a.75.75 0 01.75.75v1.5a.75.75 0 01-1.5 0v-1.5A.75.75 0 018 13zM2.343 2.343a.75.75 0 011.061 0l1.06 1.061a.75.75 0 01-1.06 1.06l-1.06-1.06a.75.75 0 010-1.06zm9.193 9.193a.75.75 0 011.06 0l1.061 1.06a.75.75 0 01-1.06 1.061l-1.061-1.06a.75.75 0 010-1.061zM16 8a.75.75 0 01-.75.75h-1.5a.75.75 0 010-1.5h1.5A.75.75 0 0116 8zM3 8a.75.75 0 01-.75.75H.75a.75.75 0 010-1.5h1.5A.75.75 0 013 8zm10.657-5.657a.75.75 0 010 1.061l-1.061 1.06a.75.75 0 11-1.06-1.06l1.06-1.06a.75.75 0 011.06 0zm-9.193 9.193a.75.75 0 010 1.06l-1.06 1.061a.75.75 0 11-1.061-1.06l1.06-1.061a.75.75 0 011.061 0z', 'moon': 'M9.598 1.591a.75.75 0 01.785-.175 7 7 0 11-8.967 8.967.75.75 0 01.961-.96 5.5 5.5 0 007.046-7.046.75.75 0 01.175-.786zm1.616 1.945a7 7 0 01-7.678 7.678 5.5 5.5 0 107.678-7.678z', 'search': 'M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z', 'rss': 'M2.002 2.725a.75.75 0 0 1 .797-.699C8.79 2.42 13.58 7.21 13.974 13.201a.75.75 0 0 1-1.497.098 10.502 10.502 0 0 0-9.776-9.776.747.747 0 0 1-.7-.798ZM2.84 7.05h-.002a7.002 7.002 0 0 1 6.113 6.111.75.75 0 0 1-1.49.178 5.503 5.503 0 0 0-4.8-4.8.75.75 0 0 1 .179-1.489ZM2 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z', 'upload': 'M2.75 14A1.75 1.75 0 0 1 1 12.25v-2.5a.75.75 0 0 1 1.5 0v2.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25v-2.5a.75.75 0 0 1 1.5 0v2.5A1.75 1.75 0 0 1 13.25 14Z M11.78 4.72a.749.749 0 1 1-1.06 1.06L8.75 3.811V9.5a.75.75 0 0 1-1.5 0V3.811L5.28 5.78a.749.749 0 1 1-1.06-1.06l3.25-3.25a.749.749 0 0 1 1.06 0l3.25 3.25Z', 'github': 'M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z', 'home': 'M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z'};
+document.getElementById("themeSwitch").setAttribute("d",value=IconList["sun"]);
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+var utterancesLoad=0
+if(localStorage.getItem("meek_theme")==null){localStorage.setItem("meek_theme","light")}
+else if(localStorage.getItem("meek_theme")=="dark"){changeDark();}
+else if(localStorage.getItem("meek_theme")=="light"){changeLight();}
+
+function changeDark(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="dark";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["moon"];
+    document.getElementById("themeSwitch").parentNode.style.color="#00f0ff";
+    if(utterancesLoad==1){utterancesTheme("dark-blue");}
+}
+function changeLight(){
+    document.getElementsByTagName("html")[0].attributes.getNamedItem("data-color-mode").value="light";
+    document.getElementById("themeSwitch").attributes.getNamedItem("d").value=IconList["sun"];
+    document.getElementById("themeSwitch").parentNode.style.color="#ff5000";
+    if(utterancesLoad==1){utterancesTheme("github-light");}
+}
+function modeSwitch(){
+    if(document.getElementsByTagName("html")[0].attributes[0].value=="light"){changeDark();localStorage.setItem("meek_theme","dark");}
+    else{changeLight();localStorage.setItem("meek_theme","light");}
+}
+function utterancesTheme(theme){
+    const message = {type: 'set-theme',theme: theme};
+    const iframe = document.getElementsByClassName('utterances-frame')[0];
+    iframe.contentWindow.postMessage(message, 'https://utteranc.es');
+}
+
+console.log("\n %c Gmeek v2.2 %c https://github.com/Meekdai/Gmeek \n\n", "color: #fff; background-image: linear-gradient(90deg, rgb(47, 172, 178) 0%, rgb(45, 190, 96) 100%); padding:5px 1px;", "background-image: linear-gradient(90deg, rgb(45, 190, 96) 0%, rgb(255, 255, 255) 100%); padding:5px 0;");
+</script>
+
+<script>
+
+
+
+function openComments(){
+    cm=document.getElementById("comments");
+    cmButton=document.getElementById("cmButton");
+    cmButton.innerHTML="loading";
+    span=document.createElement("span");
+    span.setAttribute("class","AnimatedEllipsis");
+    cmButton.appendChild(span);
+
+    script=document.createElement("script");
+    script.setAttribute("src","https://utteranc.es/client.js");
+    script.setAttribute("repo","Esn-o/Esn-o.github.io");
+    script.setAttribute("issue-term","title");
+    if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
+    else{script.setAttribute("theme","github-light");}
+    script.setAttribute("crossorigin","anonymous");
+    script.setAttribute("async","");
+    cm.appendChild(script);
+
+    int=self.setInterval("iFrameLoading()",200);
+}
+
+function iFrameLoading(){
+    var utterances=document.getElementsByClassName('utterances');
+    if(utterances.length==1){
+        if(utterances[0].style.height!=""){
+            utterancesLoad=1;
+            int=window.clearInterval(int);
+            document.getElementById("cmButton").style.display="none";
+            console.log("utterances Load OK");
+        }
+    }
+}
+
+</script>
+
+
+
+
+</html>
